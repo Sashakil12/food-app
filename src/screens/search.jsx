@@ -9,8 +9,9 @@ const Search = () => {
   const filterResultByPrice = price => {
     return results.filter(res => res.price === price);
   };
+
   return (
-    <View syle={{ flex: 1 }}>
+    <>
       <SearchBar term onTermSubmit={() => searchApi(term)} onInput={setTerm} />
       <ScrollView>
         <ResultsList
@@ -20,8 +21,7 @@ const Search = () => {
         <ResultsList results={filterResultByPrice("$$")} title="Pricier" />
         <ResultsList results={filterResultByPrice("$$$")} title="Big spender" />
       </ScrollView>
-      <Text>{!err ? `We have found ${results.length}` : `${err}`}</Text>
-    </View>
+    </>
   );
 };
 
